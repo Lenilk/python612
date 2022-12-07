@@ -22,6 +22,7 @@ for i in range(num_input,0,-1):
     for o in range((num_input-i)+1):
         str3+="* "
     str2+=str3
-    str2+="\n"
+    if i>1:
+        str2+="\n"
 print(str1)
 print(str2)

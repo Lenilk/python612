@@ -3,7 +3,7 @@ if typeYear==0:
     day=366
 elif typeYear==1:
     day=365
-dayOfYear=[int(s) for s in range(initDay,day+(initDay)) ]
+dayOfYear=[int(s) for s in range(initDay-1,day+(initDay)-1) ]
 dict_month={}
 month=["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤภาคม","มิถุนายน","กรกฏาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"]
 for i in month:
@@ -16,7 +16,6 @@ for i in month:
             dict_month[i]=29
         elif typeYear==1:
             dict_month[i]=28
-print(dict_month)
 for i in dict_month:
     dayofmonth=[]
     for j in range(dict_month[i]):
@@ -38,9 +37,17 @@ for i in dict_month:
             friday.append(dict_month[i].index(k)+1)
             dict_month[i][dict_month[i].index(k)]=10
     dict_friday[i]=friday
+fridaymount=[]
+for i in dict_friday:
+    if 13 in dict_friday[i]:
+        fridaymount.append(i)
+print("วันที่ 13 วันศุกร์ มี ",len(fridaymount),"เดือน ได้แก่")
+for i in fridaymount:
+    print("เดือน",i,end=" ")
+print()
 count=0
 for i in dict_month:
     for j in dict_month[i]:
         if j==13:
             count+=1
-print(count)
+print("ซึ่งมีทั้งหมด",count,"ครั้ง")
